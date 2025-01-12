@@ -15,7 +15,7 @@ jobs:
           DATABASE_ID: ${{ secrets.CLOUDFLARE_DATABASE_ID }}
         run: |
           # wrangler.tomlの環境変数を置換する場合
-          sed -i "s/DATABASE_ID/\${DATABASE_ID}/g" wrangler.toml
+          sed -i "s/DATABASE_ID/\$DATABASE_ID/g" wrangler.toml
       - uses: actions/upload-artifact@v4
         with:
           name: uploaded-wrangler
