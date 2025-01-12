@@ -2,7 +2,8 @@
   "name": "base-api",
   "scripts": {
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy --minify"
+    "deploy": "wrangler deploy --minify",
+    "prisma:migrate": "prisma migrate dev && tsx scripts/sync-migration-file.ts"
   },
   "dependencies": {
     "@hono/zod-openapi": "^0.18.3",
@@ -17,6 +18,7 @@
     "@cloudflare/workers-types": "^4.20241218.0",
     "@types/node": "^22.10.5",
     "prisma": "^6.1.0",
+    "tsx": "^4.19.2",
     "vitest": "^2.1.8",
     "wrangler": "^3.96.0"
   }

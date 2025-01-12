@@ -20,7 +20,7 @@ jobs:
         with:
           name: uploaded-wrangler
           path: wrangler.toml
-  deploy:
+  migrateDb:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     needs: rewireDb
@@ -30,6 +30,15 @@ jobs:
         with:
           name: uploaded-wrangler
           path: ./
+      - run: |
+          cat wrangler.toml
+          wrangler d1 migrations apply --remote
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    needs: rewireDb
+    steps:
+      - uses: actions/checkout@v4
       - run: |
           cat wrangler.toml
       - name: Build & Deploy Worker
