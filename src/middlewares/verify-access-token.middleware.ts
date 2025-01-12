@@ -5,7 +5,6 @@ import jwksRsa from "jwks-rsa";
 import * as jsonwebtoken from 'jsonwebtoken'
 
 
-
 export const verifyAccessTokenMiddleware = async (context: Context, next: () => Promise<void>) => {
 
     const authorizationHeader = context.req.header('Authorization')

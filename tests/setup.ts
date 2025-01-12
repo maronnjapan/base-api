@@ -1,5 +1,8 @@
-import type { OpenAPIHono } from "@hono/zod-openapi";
+import type app from "../src";
 
-export const executePostRequest = async <T>(app: OpenAPIHono, path: string, body?: T) => {
-    return await app.request(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined })
+export const executePostRequest = async <T>(baseApp: typeof app, path: string, body?: T) => {
+
+    return await baseApp.request(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined }, undefined)
 }
+
+

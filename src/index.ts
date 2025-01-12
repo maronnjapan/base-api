@@ -2,7 +2,11 @@ import { OpenAPIHono } from '@hono/zod-openapi'
 import { registerTodoRoutes } from './tasks/controller'
 import { prismaMiddleware } from './middlewares/init-prisma-client.middleware'
 
-const app = new OpenAPIHono()
+type Bindings = {
+  DB: D1Database
+  MY_KV_NAMESPACE: KVNamespace
+}
+const app = new OpenAPIHono<{ Bindings: Bindings }>()
 app.use('*', prismaMiddleware)
 registerTodoRoutes(app)
 
