@@ -4,7 +4,7 @@ import { prismaMiddleware } from './middlewares/init-prisma-client.middleware'
 
 type Bindings = {
   DB: D1Database
-  MY_KV_NAMESPACE: KVNamespace
+  // MY_KV_NAMESPACE: KVNamespace
 }
 const app = new OpenAPIHono<{ Bindings: Bindings }>()
 app.use('*', prismaMiddleware)

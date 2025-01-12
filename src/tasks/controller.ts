@@ -17,8 +17,6 @@ export const registerTodoRoutes = (baseApp: typeof app) => {
 
     baseApp.openapi(getTasksRouter, async (c) => {
         const client = c.get('prisma')
-        const kv = c.env.MY_KV_NAMESPACE;
-        await kv.put('key', 'value');
         const data = await client.task.findMany();
         const mapperData = data.map((d) => ({ ...d, content: d.content ?? undefined }))
         return c.json(mapperData)
