@@ -37,6 +37,9 @@ jobs:
           npm install -g wrangler
           cat wrangler.toml
           wrangler d1 migrations apply tasks --remote
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
   deploy:
     runs-on: ubuntu-latest
