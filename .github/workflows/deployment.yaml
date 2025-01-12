@@ -34,7 +34,7 @@ jobs:
         with:
           node-version: "20"
       - run: |
-          npm install -g @cloudflare/wrangler
+          npm install -g wrangler
           cat wrangler.toml
           wrangler d1 migrations apply tasks --remote
 
