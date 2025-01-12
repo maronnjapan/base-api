@@ -30,9 +30,14 @@ jobs:
         with:
           name: uploaded-wrangler
           path: ./
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
       - run: |
+          npm install -g @cloudflare/wrangler
           cat wrangler.toml
           wrangler d1 migrations apply --remote
+
   deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 60
