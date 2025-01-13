@@ -10,13 +10,6 @@ export const loggerMiddleware = async (context: Context, next: () => Promise<voi
     const requestBody = context.req.parseBody()
     const requestQuery = context.req.queries()
 
-
-    customLogger(`RequestId:[${requestId}]`)
-    customLogger(`Request URL: ${requestUrl}`)
-    customLogger(`Request Method: ${requestMethod}`)
-    customLogger(`Request Body: ${JSON.stringify(requestBody)}`)
-    customLogger(`Request Query: ${JSON.stringify(requestQuery)}`)
-
     await next()
 
 
