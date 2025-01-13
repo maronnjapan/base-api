@@ -5,7 +5,7 @@ import type app from "..";
 export const registerTodoRoutes = (baseApp: typeof app) => {
     const taskPaths = [getTasksRouter.path, createPostRouter.path]
     for (const taskPath of taskPaths) {
-        baseApp.use(taskPath, verifyAccessTokenMiddleware)
+        // baseApp.use(taskPath, verifyAccessTokenMiddleware)
     }
 
     baseApp.openapi(createPostRouter, async (c) => {
